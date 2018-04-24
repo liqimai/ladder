@@ -278,14 +278,8 @@ def global_meanpool_2d(x, num_filters):
     return mean, (num_filters, 1, 1)
 
 
-def pool_2d(x, mode="average", ws=(2, 2), stride=(2, 2)):
-    import theano.sandbox.cuda as cuda
-    assert cuda.dnn.dnn_available()
-    return cuda.dnn.dnn_pool(x, ws=ws, stride=stride, mode=mode)
-
-
 def maxpool_2d(z, in_dim, poolsize, poolstride):
-    z = pool_2d(z, ds=poolsize, st=poolstride)
+    z = pool_2d(z, ws=poolsize, stride=poolstride)
     output_size = tuple(Pool.out_shape(in_dim, poolsize, st=poolstride))
     return z, output_size
 

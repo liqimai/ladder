@@ -6,9 +6,9 @@ from collections import OrderedDict
 import theano
 import theano.tensor as T
 from theano.sandbox.rng_mrg import MRG_RandomStreams as RandomStreams
-from theano.tensor.nnet.conv import conv2d, ConvOp
-from theano.sandbox.cuda.blas import GpuCorrMM
-from theano.sandbox.cuda.basic_ops import gpu_contiguous
+from theano.tensor.nnet import conv2d, ConvOp
+from theano.gpuarray.blas import GpuCorrMM
+from theano.gpuarray.basic_ops import gpu_contiguous
 
 from blocks.bricks.cost import SquaredError
 from blocks.bricks.cost import CategoricalCrossEntropy, MisclassificationRate
